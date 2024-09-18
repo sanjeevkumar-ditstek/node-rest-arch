@@ -35,7 +35,7 @@ export default class Store {
    */
   public async getOneByAttribute(attribute: {} = {}): Promise<any> {
     try {
-      let entity: any = await this.Model.findOne(attribute);
+      const entity: any = await this.Model.findOne(attribute);
       return entity;
     } catch (e) {
       return Promise.reject(new Store.OPERATION_UNSUCCESSFUL());

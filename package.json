@@ -15,14 +15,17 @@
     "mysql2": "^3.11.3",
     "nanoid": "^5.0.7",
     "npm-watch": "^0.13.0",
-    "typescript": "^5.6.2"
+    "prettier": "^3.3.3"
   },
   "scripts": {
     "build": "tsc --jsx react --project . ",
     "dev": "npm run build && node ./.dist/index.js",
     "start": "npm-watch dev",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
     "start-production": "node ./.dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
   },
   "watch": {
     "dev": {
@@ -35,15 +38,21 @@
     }
   },
   "devDependencies": {
+    "@eslint/js": "^9.10.0",
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
+    "@types/eslint__js": "^8.42.3",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^22.5.5",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
     "eslint": "^9.10.0",
-    "nodemon": "^3.1.4"
+    "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "nodemon": "^3.1.4",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.6.0"
   },
   "keywords": [],
   "author": "",
