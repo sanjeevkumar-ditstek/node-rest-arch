@@ -5,7 +5,6 @@ Clone down this repository. You will need node and npm installed globally on you
 - NodeJs
 - ExpressJs
 - TypeScript
-- GraphQL
 - Installation and Setup Instructions (backend)
 
 ### Installation and Setup Instructions
