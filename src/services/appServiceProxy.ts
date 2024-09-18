@@ -1,19 +1,12 @@
-import test from "node:test";
 import * as IUserService from "./user/IUser";
-
 import UserController from "./user/controller";
-
 export interface IAppServiceProxy {
-  user: any;
+  user: typeof IUserService;
 }
-
-class AppServiceProxy {
+class AppServiceProxy implements IAppServiceProxy {
   public user;
-
   constructor() {
     this.user = new UserController(this);
-    // console.log(this.user.getByAttribute());
   }
 }
-
 export default new AppServiceProxy();

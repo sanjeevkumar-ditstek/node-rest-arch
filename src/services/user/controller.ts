@@ -1,14 +1,8 @@
-import Joi from "joi";
 import UserStore from "./store";
-import IUSER from "../../utils/interface/IUser";
 import * as IUserService from "./IUser";
 import { IAppServiceProxy } from "../appServiceProxy";
-import { toError } from "../../utils/interface/common";
-import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../../env";
-import { validate } from "../../utils/middlewares/validateUUID";
-import SendResponse from "../../utils/middlewares/commonResponse";
 import CommonController from "../common/controller";
 import UserModel from "../../models/userModel";
 export default class UserController extends CommonController {
@@ -36,7 +30,7 @@ export default class UserController extends CommonController {
   }
 
   /*****Generate a Token*****/
-  private generateJWT = (user: IUSER): string => {
+  private generateJWT = (user: any): string => {
     const payLoad = {
       id: user.id,
       email: user.email,

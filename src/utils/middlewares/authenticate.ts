@@ -23,7 +23,6 @@ export default function authenticate(req, res, next) {
     } else if (data) {
       req.user = data;
     }
-
     next();
   });
 }
