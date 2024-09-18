@@ -1,0 +1,59 @@
+{
+  "name": "typescript-with-node",
+  "version": "1.0.0",
+  "description": "- First install everything in every package run the command `npm install/ npm i` from your terminal in the root directory. - Then, you can run the platform for development purposes by running `npm run start` in the same directory. - For everything to work correctly you will need to set the keys in '.env' file.",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.0.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.6.2",
+    "mysql2": "^3.11.3",
+    "nanoid": "^5.0.7",
+    "npm-watch": "^0.13.0",
+    "typescript": "^5.6.2"
+  },
+  "scripts": {
+    "build": "tsc --jsx react --project . ",
+    "dev": "npm run build && node ./.dist/index.js",
+    "start": "npm-watch dev",
+    "start-production": "node ./.dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "watch": {
+    "dev": {
+      "patterns": [
+        "."
+      ],
+      "quiet": false,
+      "legacyWatch": true,
+      "extensions": "ts, js, tsx"
+    }
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^22.5.5",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "eslint": "^9.10.0",
+    "nodemon": "^3.1.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KapilWins/CRUD.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KapilWins/CRUD/issues"
+  },
+  "homepage": "https://github.com/KapilWins/CRUD#readme"
+}
