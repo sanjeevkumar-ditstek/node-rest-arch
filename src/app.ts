@@ -22,7 +22,7 @@ export default class App {
     this.app.get("/", (req, res) => {
       return res.json({ msg: "Application is Running" });
     });
-    this.app.use(requestTimeLogger);
+    this.app.use(this.requestTimeLogger);
     route(this.app);
   }
 
