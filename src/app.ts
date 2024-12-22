@@ -18,9 +18,11 @@ export default class App {
 
   private initializeMiddlewares() {
     this.app.use(json());
+    
     this.app.get("/", (req, res) => {
       return res.json({ msg: "Application is Running" });
     });
+    this.app.use(requestTimeLogger);
     route(this.app);
   }
 
@@ -39,4 +41,15 @@ export default class App {
       console.log(`App listening on the port ${this.port}`);
     });
   }
+  private requestTimeLogger = () => (req, res, next) => {
+    const startTime = Date.now(); // Capture the start time
+    
+    next(); // Continue to the next middleware or route
+  
+    res.on('finish', () => {
+      const endTime = Date.now(); // Capture the end time
+      const duration = endTime - startTime; // Calculate the duration
+      console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl} - ${duration}ms`);
+    });
+  };
 }
