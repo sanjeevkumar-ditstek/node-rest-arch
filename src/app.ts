@@ -4,6 +4,7 @@ import { PORT } from './env';
 import route from './routes/index';
 import { connect, ConnectOptions } from 'mongoose';
 import { DATABASE_URL } from './env';
+import Logger from './utils/logger';
 
 export default class App {
   public app: Application;
@@ -29,16 +30,15 @@ export default class App {
   private connectMongoDB() {
     connect(`${DATABASE_URL}`, {} as ConnectOptions)
       .then(() => {
-        console.log('Connected to mongoDB....');
+        Logger.SUCCESS('Connected to mongoDB....');
       })
       .catch((e) => {
-        console.log('There was and error to connect to mongodb');
-        console.log(e);
+        Logger.ERROR('There was and error to connect to mongodb', e);
       });
   }
   public listen() {
     this.app.listen(this.port, () => {
-      console.log(`App listening on the port ${this.port}`);
+      Logger.SUCCESS('App listening on the port', this.port);
     });
   }
   private requestTimeLogger(req, res, next) {
@@ -47,7 +47,7 @@ export default class App {
     res.on('finish', () => {
       const endTime = Date.now(); // Capture the end time
       const duration = endTime - startTime; // Calculate the duration
-      console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl} took - ${duration}ms`);
+      Logger.WARNING(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl} took - ${duration}ms`);
     });
   }
 }
